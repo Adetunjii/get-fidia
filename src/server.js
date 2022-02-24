@@ -23,7 +23,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
   apolloServer.applyMiddleware({app});
   await connectDB();
 
-  httpServer.listen(process.env.port || 4001, () => console.log(`🚀 Server is listening on port ${process.env.PORT}`));
+  httpServer.listen(process.env.PORT || 4001, () => console.log(`🚀 Server is listening on port ${process.env.PORT}`));
 };
 
 startApolloServer(typeDefs, resolvers);
