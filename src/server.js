@@ -23,7 +23,9 @@ const startApolloServer = async (typeDefs, resolvers) => {
   apolloServer.applyMiddleware({app});
   await connectDB();
 
-  httpServer.listen(4000, () => console.log(`🚀 Server ready at http://localhost:4000${apolloServer.graphqlPath}`));
+  httpServer.listen(process.env.port || 4000, () =>
+    console.log(`🚀 Server is listening on port${apolloServer.graphqlPath}`)
+  );
 };
 
 startApolloServer(typeDefs, resolvers);
